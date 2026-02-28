@@ -48,8 +48,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     // Commodities
     let gold_feed      = "0x765d2ba906dbc32ca17cc11f5310a89e9ee1f6420508c63861f2f8ba4ee34bb2";
     let silver_feed    = "0xf2fb02c32b055c805e7238d628e5e9dadef274376114eb1f012337cabe93871e";
-    let crude_oil_feed = "0x2f95862b045670cd22bee3114c39763a4a08beeb663b145d283c31d7d1101c4f";
-
+   
     let client = reqwest::Client::new();
 
     println!("Fetching prices every 1 second... Press Ctrl+C to stop.\n");
@@ -76,9 +75,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         if let Err(e) = get_price(&client, "Silver (XAG)", silver_feed).await {
             eprintln!("Silver error: {}", e);
         }
-        if let Err(e) = get_price(&client, "Crude Oil", crude_oil_feed).await {
-            eprintln!("Crude Oil error: {}", e);
-        }
+       
 
         println!();
         sleep(Duration::from_secs(1)).await;
